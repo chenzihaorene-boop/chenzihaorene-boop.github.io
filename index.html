@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHEN Zihao — Chef de projet Transformation Digitale</title>
+<meta name="description" content="CHEN Zihao — Ingénieur ENSAM, chef de projet transformation digitale : AI adoption, digital learning, data & change management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf8f5;
+    --surface:#ffffff;
+    --ink:#1c1a17;
+    --muted:#6b655d;
+    --line:#e8e2d9;
+    --accent:#9e2b25;
+    --accent-soft:#f6e9e7;
+    --accent-deep:#6f1d19;
+    --gold:#b08d3e;
+    --radius:18px;
+    --shadow:0 2px 6px rgba(28,26,23,.05),0 18px 40px -18px rgba(28,26,23,.14);
+    --font-display:"Fraunces","Noto Sans SC",serif;
+    --font-body:"Inter","Noto Sans SC",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-body);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:#fff}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    backdrop-filter:blur(14px);
+    background:rgba(250,248,245,.82);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s;
+  }
+  .nav.scrolled{border-bottom-color:var(--line)}
+  .nav-inner{
+    max-width:1080px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;gap:24px;
+  }
+  .brand{
+    font-family:var(--font-display);font-weight:700;font-size:1.05rem;
+    text-decoration:none;color:var(--ink);letter-spacing:.02em;white-space:nowrap;
+  }
+  .brand em{color:var(--accent);font-style:normal}
+  .nav-links{display:flex;gap:4px;margin-left:auto}
+  .nav-links a{
+    text-decoration:none;color:var(--muted);font-size:.86rem;font-weight:500;
+    padding:7px 12px;border-radius:99px;transition:color .2s,background .2s;
+  }
+  .nav-links a:hover{color:var(--ink);background:var(--accent-soft)}
+  .lang{display:flex;gap:2px;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--surface)}
+  .lang button{
+    border:0;background:transparent;cursor:pointer;font-family:var(--font-body);
+    font-size:.78rem;font-weight:600;color:var(--muted);
+    padding:4px 11px;border-radius:99px;transition:all .2s;
+  }
+  .lang button.active{background:var(--ink);color:#fff}
+  @media (max-width:720px){.nav-links{display:none}}
+
+  /* ---------- layout ---------- */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:84px 0}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  .kicker::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+  h2{font-family:var(--font-display);font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:700;margin-bottom:36px;letter-spacing:-.01em}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:170px;padding-bottom:90px;position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;top:-220px;right:-180px;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,var(--accent-soft) 0%,transparent 68%);pointer-events:none;
+  }
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--surface);border:1px solid var(--line);border-radius:99px;
+    padding:7px 16px;font-size:.82rem;font-weight:500;color:var(--muted);margin-bottom:26px;
+    box-shadow:var(--shadow);
+  }
+  .hero-tag .dot{width:8px;height:8px;border-radius:50%;background:#3da35d;animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(61,163,93,.45)}55%{box-shadow:0 0 0 7px rgba(61,163,93,0)}}
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(2.5rem,6.4vw,4.3rem);
+    line-height:1.07;font-weight:700;letter-spacing:-.02em;max-width:840px;
+  }
+  h1 .accent{color:var(--accent)}
+  .hero-sub{max-width:640px;margin-top:24px;font-size:1.07rem;color:var(--muted)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:13px 26px;border-radius:99px;text-decoration:none;
+    font-size:.93rem;font-weight:600;transition:transform .2s,box-shadow .2s,background .2s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -8px rgba(158,43,37,.5)}
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:64px;border-top:1px solid var(--line)}
+  .stat{padding:24px 44px 0 0}
+  .stat b{font-family:var(--font-display);font-size:1.9rem;font-weight:700;display:block;line-height:1.2}
+  .stat b span{color:var(--accent)}
+  .stat small{color:var(--muted);font-size:.84rem}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+  .about-text p{color:var(--muted);font-size:1.02rem;margin-bottom:18px}
+  .about-text p strong{color:var(--ink);font-weight:600}
+  .pillars{display:grid;gap:14px}
+  .pillar{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow);
+  }
+  .pillar .ico{
+    flex:0 0 40px;height:40px;border-radius:12px;background:var(--accent-soft);
+    display:grid;place-items:center;font-size:1.15rem;
+  }
+  .pillar b{display:block;font-size:.95rem;margin-bottom:2px}
+  .pillar small{color:var(--muted);font-size:.84rem;line-height:1.5;display:block}
+  @media (max-width:840px){.about-grid{grid-template-columns:1fr}}
+
+  /* ---------- experience ---------- */
+  .timeline{position:relative;padding-left:34px}
+  .timeline::before{
+    content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;
+    background:linear-gradient(var(--accent),var(--line));border-radius:2px;
+  }
+  .job{position:relative;margin-bottom:36px}
+  .job::before{
+    content:"";position:absolute;left:-33px;top:10px;width:12px;height:12px;border-radius:50%;
+    background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--accent);
+  }
+  .job-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 30px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
+  }
+  .job-card:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(28,26,23,.06),0 26px 50px -20px rgba(28,26,23,.2)}
+  .job-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-bottom:4px}
+  .job-title{font-size:1.13rem;font-weight:700;font-family:var(--font-display)}
+  .job-badge{
+    font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--accent-soft);color:var(--accent-deep);border-radius:99px;padding:3px 11px;
+  }
+  .job-meta{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+  .job-meta b{color:var(--ink);font-weight:600}
+  .job ul{list-style:none;display:grid;gap:9px}
+  .job li{position:relative;padding-left:22px;color:var(--muted);font-size:.95rem}
+  .job li::before{content:"▸";position:absolute;left:2px;color:var(--accent);font-size:.85rem}
+  .job li strong{color:var(--ink);font-weight:600}
+  .job-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .tag{
+    font-size:.76rem;font-weight:500;color:var(--muted);
+    border:1px solid var(--line);border-radius:99px;padding:3px 11px;background:var(--bg);
+  }
+
+  /* ---------- skills ---------- */
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .skill-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;box-shadow:var(--shadow);transition:transform .25s;
+  }
+  .skill-card:hover{transform:translateY(-3px)}
+  .skill-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:8px}
+  .skill-head b{font-size:.98rem}
+  .lvl{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+  .meter{height:5px;background:var(--line);border-radius:99px;overflow:hidden;margin:10px 0 16px}
+  .meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));border-radius:99px;transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chips span{
+    font-size:.79rem;font-weight:500;background:var(--bg);border:1px solid var(--line);
+    border-radius:8px;padding:4px 10px;color:var(--ink);
+  }
+
+  /* ---------- education & languages ---------- */
+  .edu-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:stretch}
+  @media (max-width:840px){.edu-grid{grid-template-columns:1fr}}
+  .edu-card,.langs-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px;box-shadow:var(--shadow);
+  }
+  .edu-school{font-family:var(--font-display);font-size:1.25rem;font-weight:700;margin-bottom:2px}
+  .edu-deg{color:var(--accent);font-weight:600;font-size:.95rem;margin-bottom:6px}
+  .edu-meta{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+  .edu-card .chips{margin-top:4px}
+  .langs-card h3{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  .lang-row{margin-bottom:16px}
+  .lang-row:last-child{margin-bottom:0}
+  .lang-row .lr{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:6px}
+  .lang-row .lr b{font-weight:600}
+  .lang-row .lr small{color:var(--muted)}
+
+  /* ---------- contact ---------- */
+  .contact-card{
+    background:linear-gradient(135deg,#211d19,#3a2320);
+    border-radius:26px;padding:64px 48px;text-align:center;color:#fff;
+    position:relative;overflow:hidden;
+  }
+  .contact-card::before{
+    content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);
+    width:520px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(176,141,62,.25),transparent 70%);
+  }
+  .contact-card h2{color:#fff;margin-bottom:12px}
+  .contact-card p{color:rgba(255,255,255,.72);max-width:480px;margin:0 auto 34px;position:relative}
+  .contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;position:relative}
+  .contact-links .btn-primary{box-shadow:0 10px 28px -6px rgba(158,43,37,.6)}
+  .contact-links .btn-ghost{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#fff;box-shadow:none}
+  .contact-links .btn-ghost:hover{background:rgba(255,255,255,.15)}
+  .contact-meta{margin-top:30px;color:rgba(255,255,255,.55);font-size:.85rem;position:relative}
+
+  footer{padding:34px 0 44px;text-align:center;color:var(--muted);font-size:.84rem}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">CHEN <em>Zihao</em></a>
+    <div class="nav-links">
+      <a href="#about" data-i18n="nav_about"></a>
+      <a href="#experience" data-i18n="nav_exp"></a>
+      <a href="#skills" data-i18n="nav_skills"></a>
+      <a href="#education" data-i18n="nav_edu"></a>
+      <a href="#contact" data-i18n="nav_contact"></a>
+    </div>
+    <div class="lang" id="langSwitch">
+      <button data-lang="fr">FR</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="zh">中文</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div class="hero-tag reveal"><span class="dot"></span><span data-i18n="hero_tag"></span></div>
+  <h1 class="reveal" data-i18n-html="hero_title"></h1>
+  <p class="hero-sub reveal" data-i18n="hero_sub"></p>
+  <div class="hero-cta reveal">
+    <a class="btn btn-primary" href="mailto:chen.zihao.work@gmail.com"><span data-i18n="hero_cta1"></span> →</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/zihao-chen-849173256" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div class="hero-stats reveal">
+    <div class="stat"><b>2<span>+</span></b><small data-i18n="stat1"></small></div>
+    <div class="stat"><b data-i18n="stat2_b"></b><small data-i18n="stat2"></small></div>
+    <div class="stat"><b>3</b><small data-i18n="stat3"></small></div>
+    <div class="stat"><b data-i18n="stat4_b"></b><small data-i18n="stat4"></small></div>
+  </div>
+</header>
+
+<section id="about" class="wrap">
+  <div class="kicker reveal" data-i18n="about_kicker"></div>
+  <h2 class="reveal" data-i18n="about_title"></h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p data-i18n-html="about_p1"></p>
+      <p data-i18n-html="about_p2"></p>
+    </div>
+    <div class="pillars reveal" id="pillars"></div>
+  </div>
+</section>
+
+<section id="experience" class="wrap">
+  <div class="kicker reveal" data-i18n="exp_kicker"></div>
+  <h2 class="reveal" data-i18n="exp_title"></h2>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<section id="skills" class="wrap">
+  <div class="kicker reveal" data-i18n="skills_kicker"></div>
+  <h2 class="reveal" data-i18n="skills_title"></h2>
+  <div class="skills-grid" id="skillsGrid"></div>
+</section>
+
+<section id="education" class="wrap">
+  <div class="kicker reveal" data-i18n="edu_kicker"></div>
+  <h2 class="reveal" data-i18n="edu_title"></h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-school">Arts et Métiers ParisTech (ENSAM)</div>
+      <div class="edu-deg" data-i18n="edu_deg"></div>
+      <div class="edu-meta">2022 – 2025 · Paris</div>
+      <p style="color:var(--muted);font-size:.92rem;margin-bottom:10px" data-i18n="edu_courses_label"></p>
+      <div class="chips" id="eduChips"></div>
+    </div>
+    <div class="langs-card reveal">
+      <h3 data-i18n="lang_label"></h3>
+      <div id="langRows"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="wrap">
+  <div class="contact-card reveal">
+    <h2 data-i18n="contact_title"></h2>
+    <p data-i18n="contact_sub"></p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:chen.zihao.work@gmail.com">chen.zihao.work@gmail.com</a>
+      <a class="btn btn-ghost" href="tel:+33675789136">+33 6 75 78 91 36</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/zihao-chen-849173256" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="contact-meta" data-i18n="contact_loc"></div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer"></span>
+</footer>
+
+<script>
+const I18N = {
+fr:{
+  nav_about:"À propos",nav_exp:"Expérience",nav_skills:"Compétences",nav_edu:"Formation",nav_contact:"Contact",
+  hero_tag:"Ouvert aux opportunités — Transformation digitale · Industrie 4.0",
+  hero_title:'Je transforme l’industrie par le <span class="accent">digital</span>, l’<span class="accent">IA</span> et l’<span class="accent">Industrie 4.0</span>.',
+  hero_sub:"Ingénieur diplômé de l’ENSAM, je pilote des projets de transformation digitale en environnement industriel : adoption d’outils IA, digital learning et coordination de projets transverses multi-pays. Je recherche un poste de chef de projet en transformation digitale / Industrie 4.0.",
+  hero_cta1:"Me contacter",
+  stat1:"années d’expérience en environnement industriel",
+  stat2_b:"Multi-pays",stat2:"projets transverses internationaux",
+  stat3:"langues de travail — FR · EN · 中文",
+  stat4_b:"ENSAM",stat4:"Ingénieur Arts et Métiers ParisTech",
+  about_kicker:"À propos",about_title:"Faire le pont entre les métiers et la technique",
+  about_p1:"Chez <strong>Saint-Gobain</strong>, je pilote des projets de <strong>transformation digitale</strong> : MOA, conduite du changement et adoption d’outils IA auprès d’équipes réparties dans plusieurs pays. Mon terrain de jeu : rendre les solutions digitales réellement utilisées, pas seulement déployées.",
+  about_p2:"Ma force ? <strong>Vulgariser des concepts complexes</strong> et accompagner le changement à grande échelle — du développement d’un outil d’automatisation Python / Azure IA aux dashboards Power BI qui guident les décisions du management.",
+  pillars:[
+    {ico:"🤖",t:"AI Adoption",d:"Automatisation Python + Azure IA, localisation de contenus, accompagnement à l’adoption."},
+    {ico:"🎓",t:"Digital Learning",d:"Conception de dispositifs de formation digitaux — Articulate 360, LMS, AI Learning."},
+    {ico:"📊",t:"Data & Pilotage",d:"Dashboards Power BI, Data Viz, suivi international des KPIs de formation."},
+    {ico:"🌍",t:"Change Management",d:"Conduite du changement multi-pays, interface équipes métiers ↔ techniques."}
+  ],
+  exp_kicker:"Parcours",exp_title:"Expérience professionnelle",
+  jobs:[
+    {title:"Chargé de projet digital — AI adoption & digital learning",badge:"En cours",
+     company:"Saint-Gobain · TIP Isover",meta:"CDD · 04/2025 – aujourd’hui · Courbevoie",
+     points:[
+       "<strong>Pilotage MOA et conduite du changement</strong> sur des solutions digitales transverses, coordination entre équipes métiers et techniques",
+       "Développement d’un <strong>outil d’automatisation Python + Azure IA</strong> pour la localisation de contenus et la réduction des tâches manuelles",
+       "Accompagnement du <strong>change management</strong> et de l’adoption des outils digitaux auprès d’équipes multi-pays",
+       "Conception et pilotage de <strong>dashboards Power BI</strong> pour le suivi international des formations et des KPIs de complétion"
+     ],tags:["Python","Azure IA","Power BI","MOA","Change Management"]},
+    {title:"Chargé de formation tech — Mortars Business & Glass",badge:"",
+     company:"Saint-Gobain",meta:"SFE · 09/2024 – 03/2025 · Courbevoie",
+     points:[
+       "Responsable de la <strong>mise à jour et de la maintenance</strong> de la formation pour les opérateurs du secteur du verre",
+       "<strong>Modélisation et restitution visuelle des données</strong> des audits techniques, facilitant l’aide à la décision pour le management et la diffusion des best practices",
+       "Organisation de <strong>sessions de partage des meilleures pratiques</strong> pour les activités liées aux mortiers"
+     ],tags:["Data Viz","Formation","Best Practices"]},
+    {title:"Analyste de données",badge:"",
+     company:"FORVIA",meta:"Stage · 02/2024 – 07/2024 · Shanghai",
+     points:[
+       "Mise en place d’un <strong>nouveau tableau de bord des ventes</strong> pour accroître l’efficacité des gestionnaires de comptes",
+       "<strong>Pilotage de la performance</strong> : analyse des écarts entre prévisions de ventes et réalité industrielle pour optimiser le planning de production"
+     ],tags:["Dashboard","Analyse des ventes","Planification"]}
+  ],
+  skills_kicker:"Savoir-faire",skills_title:"Compétences",
+  lvl_adv:"Avancé",lvl_pro:"Maîtrise",
+  skills:[
+    {name:"Programmation & Data",lvl:"adv",w:90,chips:["Python","SQL","R","Matlab","C++"]},
+    {name:"Gestion de projet",lvl:"adv",w:90,chips:["Pilotage de projets","Change Management","Process Design"]},
+    {name:"Digital Learning",lvl:"adv",w:88,chips:["Articulate 360","LMS","AI Learning"]},
+    {name:"Outils & Méthodes",lvl:"adv",w:86,chips:["Data Viz","Auto Workflow","LEAN"]},
+    {name:"Microsoft",lvl:"pro",w:96,chips:["Excel (VBA)","PowerPoint","Word"]}
+  ],
+  edu_kicker:"Formation",edu_title:"Formation",
+  edu_deg:"Diplôme d’Ingénieur généraliste",
+  edu_courses_label:"Enseignements clés :",
+  edu_chips:["Traitement des données","Python","Amélioration de la qualité","Conception mécanique","Gestion de projet"],
+  lang_label:"Langues",
+  langs:[{n:"Chinois",l:"Langue maternelle",w:100},{n:"Français",l:"Courant",w:90},{n:"Anglais",l:"Courant",w:88}],
+  contact_title:"Travaillons ensemble",
+  contact_sub:"Un poste ou un projet en transformation digitale, Industrie 4.0, digital learning ou adoption IA ? Discutons-en.",
+  contact_loc:"📍 Île-de-France, France",
+  footer:"© 2026 CHEN Zihao — Conçu avec soin."
+},
+en:{
+  nav_about:"About",nav_exp:"Experience",nav_skills:"Skills",nav_edu:"Education",nav_contact:"Contact",
+  hero_tag:"Open to opportunities — Digital Transformation · Industry 4.0",
+  hero_title:'I transform industry through <span class="accent">digital</span>, <span class="accent">AI</span> and <span class="accent">Industry 4.0</span>.',
+  hero_sub:"ENSAM graduate engineer leading digital transformation projects in industrial environments: AI tool adoption, digital learning and cross-functional multi-country project coordination. Currently looking for a Digital Transformation / Industry 4.0 project manager role.",
+  hero_cta1:"Get in touch",
+  stat1:"years of experience in industrial environments",
+  stat2_b:"Multi-country",stat2:"cross-functional international projects",
+  stat3:"working languages — FR · EN · 中文",
+  stat4_b:"ENSAM",stat4:"Arts et Métiers ParisTech engineer",
+  about_kicker:"About",about_title:"Bridging business and technology",
+  about_p1:"At <strong>Saint-Gobain</strong>, I lead <strong>digital transformation</strong> projects: business analysis, change management and AI tool adoption across teams in multiple countries. My focus: making digital solutions genuinely adopted, not just deployed.",
+  about_p2:"My strength? <strong>Making complex concepts simple</strong> and supporting change at scale — from building a Python / Azure AI automation tool to Power BI dashboards that guide management decisions.",
+  pillars:[
+    {ico:"🤖",t:"AI Adoption",d:"Python + Azure AI automation, content localization, adoption support."},
+    {ico:"🎓",t:"Digital Learning",d:"Design of digital training programs — Articulate 360, LMS, AI Learning."},
+    {ico:"📊",t:"Data & Reporting",d:"Power BI dashboards, data visualization, international training KPI tracking."},
+    {ico:"🌍",t:"Change Management",d:"Multi-country change management, business ↔ technical interface."}
+  ],
+  exp_kicker:"Career",exp_title:"Professional experience",
+  jobs:[
+    {title:"Digital Project Manager — AI adoption & digital learning",badge:"Current",
+     company:"Saint-Gobain · TIP Isover",meta:"Fixed-term · 04/2025 – present · Courbevoie, France",
+     points:[
+       "<strong>Business analysis and change management</strong> for cross-functional digital solutions, coordinating business and technical teams",
+       "Built a <strong>Python + Azure AI automation tool</strong> for content localization, cutting manual workload",
+       "Drove <strong>change management</strong> and digital tool adoption across multi-country teams",
+       "Designed and managed <strong>Power BI dashboards</strong> for international training tracking and completion KPIs"
+     ],tags:["Python","Azure AI","Power BI","Business Analysis","Change Management"]},
+    {title:"Technical Training Officer — Mortars Business & Glass",badge:"",
+     company:"Saint-Gobain",meta:"09/2024 – 03/2025 · Courbevoie, France",
+     points:[
+       "Owned the <strong>update and maintenance</strong> of training programs for glass-sector operators",
+       "<strong>Modeled and visualized technical audit data</strong>, supporting management decision-making and best-practice sharing",
+       "Organized <strong>best-practice sharing sessions</strong> for mortar-related activities"
+     ],tags:["Data Viz","Training","Best Practices"]},
+    {title:"Data Analyst",badge:"",
+     company:"FORVIA",meta:"Internship · 02/2024 – 07/2024 · Shanghai, China",
+     points:[
+       "Built a <strong>new sales dashboard</strong> improving account managers’ efficiency",
+       "<strong>Performance management</strong>: analyzed gaps between sales forecasts and industrial reality to optimize production planning"
+     ],tags:["Dashboard","Sales Analytics","Planning"]}
+  ],
+  skills_kicker:"Expertise",skills_title:"Skills",
+  lvl_adv:"Advanced",lvl_pro:"Proficient",
+  skills:[
+    {name:"Programming & Data",lvl:"adv",w:90,chips:["Python","SQL","R","Matlab","C++"]},
+    {name:"Project Management",lvl:"adv",w:90,chips:["Project Leadership","Change Management","Process Design"]},
+    {name:"Digital Learning",lvl:"adv",w:88,chips:["Articulate 360","LMS","AI Learning"]},
+    {name:"Tools & Methods",lvl:"adv",w:86,chips:["Data Viz","Workflow Automation","LEAN"]},
+    {name:"Microsoft",lvl:"pro",w:96,chips:["Excel (VBA)","PowerPoint","Word"]}
+  ],
+  edu_kicker:"Education",edu_title:"Education",
+  edu_deg:"Generalist Engineering Degree (MSc)",
+  edu_courses_label:"Key coursework:",
+  edu_chips:["Data Processing","Python","Quality Improvement","Mechanical Design","Project Management"],
+  lang_label:"Languages",
+  langs:[{n:"Chinese",l:"Native",w:100},{n:"French",l:"Fluent",w:90},{n:"English",l:"Fluent",w:88}],
+  contact_title:"Let’s work together",
+  contact_sub:"A digital transformation, Industry 4.0, digital learning or AI adoption role or project? Let’s talk.",
+  contact_loc:"📍 Paris area, France",
+  footer:"© 2026 CHEN Zihao — Crafted with care."
+},
+zh:{
+  nav_about:"关于我",nav_exp:"工作经历",nav_skills:"技能",nav_edu:"教育背景",nav_contact:"联系",
+  hero_tag:"求职意向 — 数字化转型 · 工业 4.0",
+  hero_title:'用<span class="accent">数字化</span>、<span class="accent">AI</span> 与<span class="accent">工业 4.0</span> 推动工业变革。',
+  hero_sub:"法国国立高等工程技术学院（ENSAM）工程师，在工业环境中主导数字化转型项目：AI 工具落地、数字化学习体系建设、跨国跨部门项目协调。目前正在寻找数字化转型 / 工业 4.0 方向的项目管理职位。",
+  hero_cta1:"联系我",
+  stat1:"年工业环境项目经验",
+  stat2_b:"跨国项目",stat2:"多国家跨部门协作",
+  stat3:"种工作语言 — 法语 · 英语 · 中文",
+  stat4_b:"ENSAM",stat4:"法国国立高等工程技术学院 工程师",
+  about_kicker:"关于我",about_title:"连接业务与技术的桥梁",
+  about_p1:"目前在<strong>圣戈班（Saint-Gobain）</strong>负责<strong>数字化转型</strong>项目：需求管理（MOA）、变革管理，以及面向多国团队的 AI 工具推广。我的目标：让数字化方案被真正用起来，而不只是上线。",
+  about_p2:"我的优势？<strong>把复杂概念讲明白</strong>，并推动大规模变革落地——从开发 Python / Azure AI 自动化工具，到搭建支撑管理决策的 Power BI 仪表盘。",
+  pillars:[
+    {ico:"🤖",t:"AI 应用推广",d:"Python + Azure AI 自动化、内容本地化、工具落地陪跑。"},
+    {ico:"🎓",t:"数字化学习",d:"数字化培训体系设计 — Articulate 360、LMS、AI Learning。"},
+    {ico:"📊",t:"数据与看板",d:"Power BI 仪表盘、数据可视化、国际培训 KPI 跟踪。"},
+    {ico:"🌍",t:"变革管理",d:"多国团队变革管理，业务 ↔ 技术双向沟通。"}
+  ],
+  exp_kicker:"职业经历",exp_title:"工作经历",
+  jobs:[
+    {title:"数字化项目负责人 — AI 应用与数字化学习",badge:"在职",
+     company:"圣戈班 · TIP Isover",meta:"合同制 · 2025/04 – 至今 · 法国库尔布瓦",
+     points:[
+       "负责跨部门数字化方案的<strong>需求管理（MOA）与变革管理</strong>，协调业务与技术团队",
+       "开发基于 <strong>Python + Azure AI 的自动化工具</strong>，用于内容本地化并减少人工操作",
+       "推动多国团队的<strong>变革管理与数字化工具落地</strong>",
+       "设计并运营 <strong>Power BI 仪表盘</strong>，跟踪国际培训进度与完成率 KPI"
+     ],tags:["Python","Azure AI","Power BI","需求管理","变革管理"]},
+    {title:"技术培训专员 — 砂浆业务与玻璃",badge:"",
+     company:"圣戈班",meta:"2024/09 – 2025/03 · 法国库尔布瓦",
+     points:[
+       "负责玻璃行业操作工培训内容的<strong>更新与维护</strong>",
+       "对技术审计数据进行<strong>建模与可视化呈现</strong>，辅助管理层决策并推广最佳实践",
+       "组织砂浆相关业务的<strong>最佳实践分享会</strong>"
+     ],tags:["数据可视化","培训","最佳实践"]},
+    {title:"数据分析",badge:"",
+     company:"佛瑞亚 FORVIA",meta:"实习 · 2024/02 – 2024/07 · 上海",
+     points:[
+       "搭建<strong>全新销售仪表盘</strong>，提升客户经理工作效率",
+       "<strong>绩效管理</strong>：分析销售预测与工业实际之间的差异，优化生产排程"
+     ],tags:["仪表盘","销售分析","生产计划"]}
+  ],
+  skills_kicker:"专业能力",skills_title:"技能",
+  lvl_adv:"高级",lvl_pro:"精通",
+  skills:[
+    {name:"编程与数据",lvl:"adv",w:90,chips:["Python","SQL","R","Matlab","C++"]},
+    {name:"项目管理",lvl:"adv",w:90,chips:["项目统筹","变革管理","流程设计"]},
+    {name:"数字化学习",lvl:"adv",w:88,chips:["Articulate 360","LMS","AI Learning"]},
+    {name:"工具与方法",lvl:"adv",w:86,chips:["数据可视化","流程自动化","精益管理"]},
+    {name:"Microsoft",lvl:"pro",w:96,chips:["Excel (VBA)","PowerPoint","Word"]}
+  ],
+  edu_kicker:"教育背景",edu_title:"教育背景",
+  edu_deg:"通用工程师文凭（硕士层级）",
+  edu_courses_label:"核心课程：",
+  edu_chips:["数据处理","Python","质量改进","机械设计","项目管理"],
+  lang_label:"语言能力",
+  langs:[{n:"中文",l:"母语",w:100},{n:"法语",l:"流利",w:90},{n:"英语",l:"流利",w:88}],
+  contact_title:"期待与你合作",
+  contact_sub:"数字化转型、工业 4.0、数字化学习或 AI 应用方向的职位与项目，欢迎联系我聊聊。",
+  contact_loc:"📍 法国 法兰西岛大区（巴黎地区）",
+  footer:"© 2026 陈子豪 CHEN Zihao — 用心设计。"
+}
+};
+
+const esc = s => s; // content is trusted local data
+function render(lang){
+  const t = I18N[lang];
+  document.documentElement.lang = lang==='zh'?'zh-CN':lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t[el.dataset.i18n] ?? ''; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t[el.dataset.i18nHtml] ?? ''; });
+
+  document.getElementById('pillars').innerHTML = t.pillars.map(p=>`
+    <div class="pillar"><div class="ico">${p.ico}</div><div><b>${p.t}</b><small>${p.d}</small></div></div>`).join('');
+
+  document.getElementById('timeline').innerHTML = t.jobs.map(j=>`
+    <div class="job">
+      <div class="job-card">
+        <div class="job-head"><span class="job-title">${j.title}</span>${j.badge?`<span class="job-badge">${j.badge}</span>`:''}</div>
+        <div class="job-meta"><b>${j.company}</b> · ${j.meta}</div>
+        <ul>${j.points.map(p=>`<li>${p}</li>`).join('')}</ul>
+        <div class="job-tags">${j.tags.map(x=>`<span class="tag">${x}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('skillsGrid').innerHTML = t.skills.map(s=>`
+    <div class="skill-card">
+      <div class="skill-head"><b>${s.name}</b><span class="lvl">${s.lvl==='adv'?t.lvl_adv:t.lvl_pro}</span></div>
+      <div class="meter"><i data-w="${s.w}"></i></div>
+      <div class="chips">${s.chips.map(c=>`<span>${c}</span>`).join('')}</div>
+    </div>`).join('');
+
+  document.getElementById('eduChips').innerHTML = t.edu_chips.map(c=>`<span>${c}</span>`).join('');
+
+  document.getElementById('langRows').innerHTML = t.langs.map(l=>`
+    <div class="lang-row">
+      <div class="lr"><b>${l.n}</b><small>${l.l}</small></div>
+      <div class="meter"><i data-w="${l.w}"></i></div>
+    </div>`).join('');
+
+  document.querySelectorAll('#langSwitch button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  document.title = lang==='fr' ? 'CHEN Zihao — Chef de projet Transformation Digitale'
+                 : lang==='en' ? 'CHEN Zihao — Digital Transformation Project Manager'
+                 : '陈子豪 CHEN Zihao — 数字化转型项目负责人';
+  localStorage.setItem('zh-site-lang',lang);
+  requestAnimationFrame(()=>requestAnimationFrame(animateMeters));
+}
+
+function animateMeters(){
+  document.querySelectorAll('.meter i').forEach(m=>{ m.style.width = m.dataset.w + '%'; });
+}
+
+document.getElementById('langSwitch').addEventListener('click',e=>{
+  const b = e.target.closest('button'); if(b) render(b.dataset.lang);
+});
+
+const saved = localStorage.getItem('zh-site-lang');
+render(['fr','en','zh'].includes(saved)?saved:'fr');
+
+/* reveal on scroll */
+const io = new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* nav border on scroll */
+const nav = document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>10),{passive:true});
+</script>
+</body>
+</html>
