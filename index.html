@@ -110,6 +110,26 @@
   .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -8px rgba(158,43,37,.5)}
   .btn-primary:hover{background:var(--accent-deep)}
   .btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero-grid{display:flex;align-items:center;gap:56px}
+  .hero-main{flex:1;min-width:0}
+  .avatar{
+    flex:0 0 auto;width:212px;height:212px;border-radius:50%;padding:6px;
+    background:linear-gradient(135deg,var(--accent),var(--gold));
+    box-shadow:0 20px 44px -16px rgba(158,43,37,.4);
+  }
+  .avatar .ph{
+    width:100%;height:100%;border-radius:50%;overflow:hidden;
+    background:var(--surface);display:grid;place-items:center;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:none}
+  .avatar .mono{font-family:var(--font-display);font-size:3.6rem;font-weight:700;color:var(--accent)}
+  .avatar.loaded img{display:block}
+  .avatar.loaded .mono{display:none}
+  @media (max-width:840px){
+    .hero-grid{flex-direction:column-reverse;align-items:flex-start;gap:30px}
+    .avatar{width:136px;height:136px;padding:5px}
+    .avatar .mono{font-size:2.3rem}
+  }
   .hero-stats{display:flex;flex-wrap:wrap;gap:0;margin-top:64px;border-top:1px solid var(--line)}
   .stat{padding:24px 44px 0 0}
   .stat b{font-family:var(--font-display);font-size:1.9rem;font-weight:700;display:block;line-height:1.2}
@@ -149,6 +169,11 @@
     padding:28px 30px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
   }
   .job-card:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(28,26,23,.06),0 26px 50px -20px rgba(28,26,23,.2)}
+  .job-logo-chip{
+    display:inline-flex;align-items:center;background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:8px 13px;margin-bottom:14px;
+  }
+  .job-logo-chip img{height:26px;max-width:120px;object-fit:contain;display:block}
   .job-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-bottom:4px}
   .job-title{font-size:1.13rem;font-weight:700;font-family:var(--font-display)}
   .job-badge{
@@ -192,6 +217,8 @@
     background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
     padding:30px;box-shadow:var(--shadow);
   }
+  .edu-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+  .edu-head img{height:38px;max-width:150px;object-fit:contain;margin-top:4px}
   .edu-school{font-family:var(--font-display);font-size:1.25rem;font-weight:700;margin-bottom:2px}
   .edu-deg{color:var(--accent);font-weight:600;font-size:.95rem;margin-bottom:6px}
   .edu-meta{color:var(--muted);font-size:.88rem;margin-bottom:16px}
@@ -254,12 +281,22 @@
 </nav>
 
 <header class="hero wrap" id="top">
-  <div class="hero-tag reveal"><span class="dot"></span><span data-i18n="hero_tag"></span></div>
-  <h1 class="reveal" data-i18n-html="hero_title"></h1>
-  <p class="hero-sub reveal" data-i18n="hero_sub"></p>
-  <div class="hero-cta reveal">
-    <a class="btn btn-primary" href="mailto:chen.zihao.work@gmail.com"><span data-i18n="hero_cta1"></span> →</a>
-    <a class="btn btn-ghost" href="https://www.linkedin.com/in/zihao-chen-849173256" target="_blank" rel="noopener">LinkedIn</a>
+  <div class="hero-grid">
+    <div class="hero-main">
+      <div class="hero-tag reveal"><span class="dot"></span><span data-i18n="hero_tag"></span></div>
+      <h1 class="reveal" data-i18n-html="hero_title"></h1>
+      <p class="hero-sub reveal" data-i18n="hero_sub"></p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" href="mailto:chen.zihao.work@gmail.com"><span data-i18n="hero_cta1"></span> →</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/zihao-chen-849173256" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="avatar reveal">
+      <div class="ph">
+        <img src="assets/avatar.jpg" alt="CHEN Zihao" onload="this.closest('.avatar').classList.add('loaded')">
+        <span class="mono">CZ</span>
+      </div>
+    </div>
   </div>
   <div class="hero-stats reveal">
     <div class="stat"><b>2<span>+</span></b><small data-i18n="stat1"></small></div>
@@ -298,7 +335,10 @@
   <h2 class="reveal" data-i18n="edu_title"></h2>
   <div class="edu-grid">
     <div class="edu-card reveal">
-      <div class="edu-school">Arts et Métiers ParisTech (ENSAM)</div>
+      <div class="edu-head">
+        <div class="edu-school">Arts et Métiers ParisTech (ENSAM)</div>
+        <img src="assets/ensam.png" alt="Arts et Métiers ParisTech" onerror="this.remove()">
+      </div>
       <div class="edu-deg" data-i18n="edu_deg"></div>
       <div class="edu-meta">2022 – 2025 · Paris</div>
       <p style="color:var(--muted);font-size:.92rem;margin-bottom:10px" data-i18n="edu_courses_label"></p>
@@ -531,9 +571,15 @@ function render(lang){
   document.getElementById('pillars').innerHTML = t.pillars.map(p=>`
     <div class="pillar"><div class="ico">${p.ico}</div><div><b>${p.t}</b><small>${p.d}</small></div></div>`).join('');
 
-  document.getElementById('timeline').innerHTML = t.jobs.map(j=>`
+  const JOB_LOGOS=[
+    {src:'assets/saint-gobain.png',alt:'Saint-Gobain'},
+    {src:'assets/saint-gobain.png',alt:'Saint-Gobain'},
+    {src:'assets/forvia.png',alt:'FORVIA'}
+  ];
+  document.getElementById('timeline').innerHTML = t.jobs.map((j,i)=>`
     <div class="job">
       <div class="job-card">
+        <div class="job-logo-chip"><img src="${JOB_LOGOS[i].src}" alt="${JOB_LOGOS[i].alt}" onerror="this.parentNode.remove()"></div>
         <div class="job-head"><span class="job-title">${j.title}</span>${j.badge?`<span class="job-badge">${j.badge}</span>`:''}</div>
         <div class="job-meta"><b>${j.company}</b> · ${j.meta}</div>
         <ul>${j.points.map(p=>`<li>${p}</li>`).join('')}</ul>
