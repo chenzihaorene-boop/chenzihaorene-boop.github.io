@@ -8,6 +8,15 @@
 <meta property="og:title" content="CHEN Zihao — Ingénieur Industrie 4.0">
 <meta property="og:description" content="Le digital au cœur des opérations, au service de la performance. Candidat Ingénieur Industrie 4.0 — Isover Orange.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://chenzihaorene-boop.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CHEN Zihao — Ingénieur Industrie 4.0">
+<meta name="twitter:description" content="Le digital au cœur des opérations, au service de la performance.">
+<meta name="twitter:image" content="https://chenzihaorene-boop.github.io/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -379,6 +388,97 @@
   footer{padding:38px 0 48px;text-align:center;color:var(--muted);font-size:.84rem}
   footer .mono{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);opacity:.7;margin-top:6px}
 
+  /* ---------- axis / pipeline icons ---------- */
+  .ic{width:1em;height:1em;display:inline-block;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .axis-ico .ic{width:26px;height:26px;color:var(--accent)}
+
+  /* ---------- vision ---------- */
+  .vision.section{background:linear-gradient(#fbf9f5,var(--bg))}
+  .vision-thesis{
+    position:relative;margin:8px 0 54px;padding:34px 38px;border-radius:var(--radius-lg);
+    background:linear-gradient(135deg,#fff,#fdf3ee);border:1px solid var(--line);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .vision-thesis::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(var(--molten),var(--accent));
+  }
+  .vt-quote{
+    font-family:var(--font-display);font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:600;
+    line-height:1.28;letter-spacing:-.01em;max-width:880px;
+  }
+  .vt-quote .hl{
+    background:linear-gradient(100deg,var(--molten-2),var(--molten) 60%,var(--accent));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .vt-by{margin-top:14px;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
+
+  .flow-wrap{
+    background:var(--dark);color:#f3ece4;border-radius:var(--radius-lg);
+    padding:30px 32px 34px;position:relative;overflow:hidden;isolation:isolate;
+  }
+  .flow-wrap::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(540px 300px at 80% -20%,rgba(232,116,59,.22),transparent 70%);
+  }
+  .flow-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+  .flow-title{font-family:var(--font-display);font-size:1.2rem;font-weight:600}
+  .flow-replay{
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;cursor:pointer;
+    background:rgba(255,255,255,.08);color:#f3ece4;border:1px solid rgba(255,255,255,.2);
+    border-radius:99px;padding:7px 15px;transition:background .2s;
+  }
+  .flow-replay:hover{background:rgba(255,255,255,.16)}
+
+  .flow-chart{position:relative;height:200px;margin-bottom:22px}
+  .flow-chart svg{width:100%;height:100%;overflow:visible}
+  .flow-chart .seuil{stroke:rgba(243,236,228,.4);stroke-width:1.4;stroke-dasharray:5 5}
+  .series{stroke:rgba(120,180,235,.9);stroke-width:2.4;fill:none;
+    stroke-dasharray:1400;stroke-dashoffset:1400;}
+  .series-hot{stroke:var(--molten);stroke-width:3;fill:none;filter:drop-shadow(0 0 6px rgba(232,116,59,.7));
+    stroke-dasharray:1400;stroke-dashoffset:1400;}
+  .flow-chart.run .series{animation:draw 2.4s linear forwards}
+  .flow-chart.run .series-hot{animation:draw 1.1s linear 1.7s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .head{fill:#cfe3fb;opacity:0;transition:opacity .3s}
+  .flow-chart.run .head{opacity:1;transition:none}
+  .seuil-tag{
+    position:absolute;left:0;top:54px;font-family:var(--font-mono);font-size:.66rem;
+    letter-spacing:.08em;color:rgba(243,236,228,.55);
+  }
+  .alarm{
+    position:absolute;right:6px;top:18px;display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;
+    background:rgba(232,116,59,.16);border:1px solid rgba(232,116,59,.5);color:#ffd9c4;
+    border-radius:99px;padding:6px 13px;opacity:0;transform:scale(.8);
+  }
+  .flow-chart.fire .alarm{opacity:1;transform:scale(1);transition:all .35s var(--ease)}
+  .alarm-dot{width:8px;height:8px;border-radius:50%;background:var(--molten);box-shadow:0 0 0 0 rgba(232,116,59,.6);animation:pulse 1.3s infinite}
+
+  .mailcard{
+    background:#fff;color:var(--ink);border-radius:14px;max-width:430px;margin:0 0 26px auto;
+    box-shadow:0 18px 40px -16px rgba(0,0,0,.5);overflow:hidden;
+    opacity:0;transform:translateY(16px) scale(.97);transition:all .5s var(--ease);
+  }
+  .flow-wrap.mail .mailcard{opacity:1;transform:none}
+  .mc-bar{display:flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:10px 16px;font-size:.84rem;font-weight:600}
+  .mc-ico{font-size:1rem}
+  .mc-subj{padding:14px 16px 4px;font-weight:600;font-size:.95rem}
+  .mc-body{padding:0 16px 16px;color:var(--muted);font-size:.86rem;line-height:1.5}
+
+  .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;position:relative}
+  @media (max-width:760px){.pipeline{grid-template-columns:1fr 1fr;gap:12px}}
+  .pstep{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;
+    padding:16px 14px;text-align:center;transition:all .4s var(--ease);
+  }
+  .pstep .pic{width:30px;height:30px;color:rgba(243,236,228,.5);margin-bottom:8px;transition:color .4s}
+  .pstep b{display:block;font-size:.86rem;font-weight:600;margin-bottom:2px}
+  .pstep small{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.04em;color:rgba(243,236,228,.45);text-transform:uppercase}
+  .pstep.on{background:rgba(232,116,59,.14);border-color:rgba(232,116,59,.55);transform:translateY(-4px)}
+  .pstep.on .pic{color:var(--molten-2)}
+  .pstep.on small{color:#ffd9c4}
+
   /* ---------- reveal ---------- */
   .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
   .reveal.in{opacity:1;transform:none}
@@ -404,6 +504,7 @@
     <a class="brand" href="#top">CHEN <em>Zihao</em></a>
     <div class="nav-links">
       <a href="#about" data-i18n="nav_about"></a>
+      <a href="#vision" data-i18n="nav_vision"></a>
       <a href="#experience" data-i18n="nav_exp"></a>
       <a href="#skills" data-i18n="nav_skills"></a>
       <a href="#education" data-i18n="nav_edu"></a>
@@ -430,6 +531,7 @@
         <p class="hero-sub reveal" data-i18n="hero_sub"></p>
         <div class="hero-cta reveal">
           <a class="btn btn-primary" href="mailto:chen.zihao.work@gmail.com"><span data-i18n="hero_cta1"></span> →</a>
+          <a class="btn btn-ghost" href="assets/CV_CHEN_Zihao.pdf" download><span data-i18n="hero_cta2"></span> ↓</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/zihao-chen-849173256" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
@@ -462,6 +564,48 @@
     <p class="reveal" data-i18n-html="about_p2"></p>
   </div>
   <div class="axes stagger" id="axes"></div>
+</section>
+
+<section id="vision" class="section vision">
+  <div class="wrap">
+    <div class="kicker reveal" data-i18n="vision_kicker"></div>
+    <h2 class="reveal" data-i18n="vision_title"></h2>
+    <p class="sec-intro reveal" data-i18n-html="vision_intro"></p>
+
+    <div class="vision-thesis reveal">
+      <div class="vt-quote" data-i18n-html="vision_quote"></div>
+      <div class="vt-by" data-i18n="vision_quote_by"></div>
+    </div>
+
+    <div class="flow-wrap reveal">
+      <div class="flow-head">
+        <span class="flow-title" data-i18n="flow_title"></span>
+        <button class="flow-replay" id="flowReplay" data-i18n="flow_replay"></button>
+      </div>
+
+      <!-- animated threshold chart -->
+      <div class="flow-chart">
+        <svg id="chart" viewBox="0 0 640 200" preserveAspectRatio="none" aria-hidden="true">
+          <line class="seuil" x1="0" y1="70" x2="640" y2="70"/>
+          <path class="series" id="series" d=""/>
+          <path class="series-hot" id="seriesHot" d=""/>
+          <circle class="head" id="chartHead" r="5" cx="0" cy="160"/>
+        </svg>
+        <span class="seuil-tag" data-i18n="flow_seuil"></span>
+        <div class="alarm" id="alarm"><span class="alarm-dot"></span><span data-i18n="flow_alarm"></span></div>
+      </div>
+
+      <!-- email card -->
+      <div class="mailcard" id="mailcard">
+        <div class="mc-bar"><span class="mc-ico">✉</span><span class="mc-from" data-i18n="flow_mail_from"></span></div>
+        <div class="mc-subj" data-i18n="flow_mail_subj"></div>
+        <div class="mc-body" data-i18n="flow_mail_body"></div>
+      </div>
+
+      <!-- pipeline steps -->
+      <div class="pipeline" id="pipeline"></div>
+    </div>
+  </div>
 </section>
 
 <section id="experience" class="section exp">
@@ -522,8 +666,28 @@
 <script>
 const I18N = {
 fr:{
-  nav_about:"À propos",nav_exp:"Expérience",nav_skills:"Compétences",nav_edu:"Formation",nav_contact:"Contact",
+  nav_about:"À propos",nav_vision:"Ma vision",nav_exp:"Expérience",nav_skills:"Compétences",nav_edu:"Formation",nav_contact:"Contact",
   hero_tag:"Candidat — Ingénieur Industrie 4.0 · Isover Orange",
+  hero_cta2:"CV (PDF)",
+  vision_kicker:"Ma vision · Orange",
+  vision_title:"Le frein n’est pas l’outil. C’est l’usage.",
+  vision_intro:"À l’usine, les outils digitaux et les tableaux de bord existent déjà. Le vrai levier n’est pas d’en ajouter, mais de les faire <strong>réellement utiliser</strong> et de transformer la visualisation existante (Grafana, Power BI) en <strong>décisions</strong>.",
+  vision_quote:"La donnée va <span class='hl'>vers les personnes</span> — pas l’inverse.",
+  vision_quote_by:"// principe directeur",
+  flow_title:"Du tableau de bord à la décision",
+  flow_replay:"▷ Rejouer",
+  flow_seuil:"SEUIL / ALARME",
+  flow_alarm:"Seuil franchi",
+  flow_mail_from:"Alerte automatique · Production",
+  flow_mail_subj:"⚠ Dérive détectée — brief joint",
+  flow_mail_body:"Brief généré par IA à partir des données temps réel, envoyé au bon responsable pour une décision immédiate.",
+  flow_steps:[
+    {b:"Données temps réel",s:"Grafana · Power BI"},
+    {b:"Seuil franchi",s:"Alarme"},
+    {b:"Brief généré",s:"IA"},
+    {b:"Email ciblé",s:"Responsable"},
+    {b:"Décision & action",s:"Terrain"}
+  ],
   hero_title:'Le <span class="accent">digital</span> au cœur des opérations, au service de la <span class="accent">performance</span>.',
   hero_sub:"Ingénieur Arts et Métiers, déjà chez Saint-Gobain TIP Isover : je digitalise le savoir-faire process avec les ingénieurs process et je forme les opérateurs industriels — y compris dans le secteur du verre. Mon objectif : porter la feuille de route 4.0 de l’usine d’Orange, du terrain jusqu’à l’adoption.",
   hero_cta1:"Me contacter",
@@ -584,8 +748,28 @@ fr:{
   footer:"© 2026 CHEN Zihao — Conçu avec soin."
 },
 en:{
-  nav_about:"About",nav_exp:"Experience",nav_skills:"Skills",nav_edu:"Education",nav_contact:"Contact",
+  nav_about:"About",nav_vision:"Vision",nav_exp:"Experience",nav_skills:"Skills",nav_edu:"Education",nav_contact:"Contact",
   hero_tag:"Candidate — Industry 4.0 Engineer · Isover Orange",
+  hero_cta2:"CV (PDF)",
+  vision_kicker:"My vision · Orange",
+  vision_title:"The bottleneck isn’t the tooling. It’s adoption.",
+  vision_intro:"The plant already has the digital tools and dashboards. The real lever isn’t adding more — it’s getting them <strong>actually used</strong>, turning existing visualization (Grafana, Power BI) into <strong>decisions</strong>.",
+  vision_quote:"Data goes <span class='hl'>to the people</span> — not the other way around.",
+  vision_quote_by:"// guiding principle",
+  flow_title:"From dashboard to decision",
+  flow_replay:"▷ Replay",
+  flow_seuil:"THRESHOLD / ALARM",
+  flow_alarm:"Threshold crossed",
+  flow_mail_from:"Automatic alert · Production",
+  flow_mail_subj:"⚠ Drift detected — brief attached",
+  flow_mail_body:"AI-generated brief from real-time data, pushed to the right manager for an immediate decision.",
+  flow_steps:[
+    {b:"Real-time data",s:"Grafana · Power BI"},
+    {b:"Threshold crossed",s:"Alarm"},
+    {b:"Brief generated",s:"AI"},
+    {b:"Targeted email",s:"Manager"},
+    {b:"Decision & action",s:"Shop floor"}
+  ],
   hero_title:'<span class="accent">Digital</span> at the heart of operations, in service of <span class="accent">performance</span>.',
   hero_sub:"Arts et Métiers engineer, already at Saint-Gobain TIP Isover: I digitalize process know-how with process engineers and train industrial operators — including in the glass sector. My goal: drive the 4.0 roadmap of the Orange plant, from the shop floor to full adoption.",
   hero_cta1:"Get in touch",
@@ -646,8 +830,28 @@ en:{
   footer:"© 2026 CHEN Zihao — Crafted with care."
 },
 zh:{
-  nav_about:"关于我",nav_exp:"工作经历",nav_skills:"技能",nav_edu:"教育背景",nav_contact:"联系",
+  nav_about:"关于我",nav_vision:"我的设想",nav_exp:"工作经历",nav_skills:"技能",nav_edu:"教育背景",nav_contact:"联系",
   hero_tag:"候选人 — 工业 4.0 工程师 · Isover Orange 工厂",
+  hero_cta2:"下载 CV",
+  vision_kicker:"我的设想 · Orange",
+  vision_title:"瓶颈不在工具，而在使用与推广。",
+  vision_intro:"工厂里数字化工具和仪表盘其实已经齐备。真正的杠杆不是再加工具，而是<strong>让它们被真正用起来</strong>，把现有的可视化（Grafana、Power BI）转化为<strong>决策</strong>。",
+  vision_quote:"让数据<span class='hl'>主动去找人</span>——而不是反过来。",
+  vision_quote_by:"// 核心原则",
+  flow_title:"从仪表盘到决策",
+  flow_replay:"▷ 重新播放",
+  flow_seuil:"阈值 / 告警",
+  flow_alarm:"阈值越线",
+  flow_mail_from:"自动告警 · 生产",
+  flow_mail_subj:"⚠ 检测到偏移 — 附简报",
+  flow_mail_body:"基于实时数据由 AI 生成简报，自动推送给对应责任人，支持即时决策。",
+  flow_steps:[
+    {b:"实时数据",s:"Grafana · Power BI"},
+    {b:"阈值越线",s:"告警"},
+    {b:"生成简报",s:"AI"},
+    {b:"定向邮件",s:"责任人"},
+    {b:"决策与行动",s:"现场"}
+  ],
   hero_title:'让<span class="accent">数字化</span>深入生产一线，服务于<span class="accent">绩效</span>。',
   hero_sub:"法国国立高等工程技术学院（ENSAM）工程师，现就职于圣戈班 TIP Isover：与工艺工程师协作将工艺知识数字化，为产业操作工设计培训——包括玻璃行业。我的目标：主导 Orange 工厂的工业 4.0 路线图，从生产现场到全面落地。",
   hero_cta1:"联系我",
@@ -711,6 +915,21 @@ zh:{
 
 const TICKER = ["PYTHON","POWER BI","POWER AUTOMATE","WCM","LEAN","STORYLINE","DATA VIZ","SQL","PROCESS DESIGN","CHANGE MANAGEMENT","POWER APPS","AUTOMATISATION","FORMATION OPÉRATEURS","INDUSTRIE 4.0"];
 
+const SVG = {
+  roadmap:'<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/>',
+  eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+  cycle:'<path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v5h-5"/>',
+  cap:'<path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>',
+  bars:'<path d="M3 20h18"/><rect x="5" y="11" width="3" height="6"/><rect x="10.5" y="6" width="3" height="11"/><rect x="16" y="13" width="3" height="4"/>',
+  pulse:'<path d="M2 13h5l2-6 4 12 2-6h7"/>',
+  brief:'<path d="M6 3h7l5 5v13H6Z"/><path d="M13 3v5h5"/><path d="M9.5 12.5l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8Z"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  check:'<circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/>'
+};
+const icon = n => `<svg class="ic" viewBox="0 0 24 24">${SVG[n]||''}</svg>`;
+const AXIS_ICONS = ['roadmap','eye','cycle','cap'];
+const PIPE_ICONS = ['bars','pulse','brief','mail','check'];
+
 function render(lang){
   const t = I18N[lang];
   document.documentElement.lang = lang==='zh'?'zh-CN':lang;
@@ -719,9 +938,16 @@ function render(lang){
 
   document.getElementById('axes').innerHTML = t.pillars.map((p,i)=>`
     <div class="axis">
-      <div class="axis-top"><div class="axis-ico">${p.ico}</div><div class="axis-no">0${i+1}</div></div>
+      <div class="axis-top"><div class="axis-ico">${icon(AXIS_ICONS[i])}</div><div class="axis-no">0${i+1}</div></div>
       <b>${p.t}</b><small>${p.d}</small>
     </div>`).join('');
+
+  document.getElementById('pipeline').innerHTML = t.flow_steps.map((s,i)=>`
+    <div class="pstep" data-i="${i}">
+      <svg class="ic pic" viewBox="0 0 24 24">${SVG[PIPE_ICONS[i]]}</svg>
+      <b>${s.b}</b><small>${s.s}</small>
+    </div>`).join('');
+  if(flowPlayed) applyFlowStatic();
 
   const JOB_LOGOS=[
     {src:'assets/saint-gobain.png',alt:'Saint-Gobain'},
@@ -799,6 +1025,47 @@ function countUp(){
 document.getElementById('langSwitch').addEventListener('click',e=>{
   const b = e.target.closest('button'); if(b) render(b.dataset.lang);
 });
+
+/* ---------- vision flow engine ---------- */
+const reduceMotion = matchMedia('(prefers-reduced-motion:reduce)').matches;
+let flowPlayed=false, pipeTimers=[];
+(function setupChart(){
+  const seriesD="M0 150 L60 145 L120 152 L180 138 L240 142 L300 128 L360 118 L420 96 L455 72 L500 54 L560 46 L640 36";
+  const hotD="M455 72 L500 54 L560 46 L640 36";
+  document.getElementById('series').setAttribute('d',seriesD);
+  document.getElementById('seriesHot').setAttribute('d',hotD);
+  const head=document.getElementById('chartHead'); head.setAttribute('cx',455); head.setAttribute('cy',72);
+})();
+const fchart=()=>document.querySelector('.flow-chart');
+const fwrap=()=>document.querySelector('.flow-wrap');
+function clearFlow(){
+  pipeTimers.forEach(clearTimeout); pipeTimers=[];
+  fchart().classList.remove('run','fire'); fwrap().classList.remove('mail');
+  document.querySelectorAll('.pstep').forEach(p=>p.classList.remove('on'));
+  document.getElementById('series').style.strokeDashoffset='';
+  document.getElementById('seriesHot').style.strokeDashoffset='';
+  void fchart().offsetWidth; // reflow to restart CSS animations
+}
+function applyFlowStatic(){
+  fchart().classList.add('run','fire'); fwrap().classList.add('mail');
+  document.getElementById('series').style.strokeDashoffset='0';
+  document.getElementById('seriesHot').style.strokeDashoffset='0';
+  document.querySelectorAll('.pstep').forEach(p=>p.classList.add('on'));
+}
+function runFlow(){
+  flowPlayed=true;
+  if(reduceMotion){ applyFlowStatic(); return; }
+  clearFlow();
+  fchart().classList.add('run');
+  const steps=[...document.querySelectorAll('.pstep')];
+  [200,1400,2600,3300,4000].forEach((d,i)=>pipeTimers.push(setTimeout(()=>steps[i]&&steps[i].classList.add('on'),d)));
+  pipeTimers.push(setTimeout(()=>fchart().classList.add('fire'),2700));
+  pipeTimers.push(setTimeout(()=>fwrap().classList.add('mail'),3400));
+}
+document.getElementById('flowReplay').addEventListener('click',runFlow);
+new IntersectionObserver((es,o)=>es.forEach(en=>{
+  if(en.isIntersecting){ runFlow(); o.disconnect(); }
+}),{threshold:.35}).observe(document.getElementById('vision'));
 
 const saved = localStorage.getItem('zh-site-lang');
 render(['fr','en','zh'].includes(saved)?saved:'fr');
